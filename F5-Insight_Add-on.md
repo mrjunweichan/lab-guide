@@ -4,7 +4,9 @@
 
 **Navigate to:** Manage > Automation > Jobs  
 
+
 **Click on:** Add Job > "Software Distribution"  
+
 
 **Fill Form:**  
 Job Name:  17.1.3.4 Distribution  
@@ -16,20 +18,26 @@ Instances:
 Software to Distribute:  BIGIP-17.1.3.4-0.0.12.iso  
 
 Distribution Type:  Serial (Rolling Execution)  
+
   
 **Click on:** "Check Instances"  
 
+
 **Click on:** "Execute Job"  
 
+
 ---
+
 **To View Distribution Progress**
 
 Click on execution number next to "Job name" 
 Click on execution ID of running job
 View the progress of distribution job
 
+
 Alternatively, use the REST API to view Distribution Jobs
 udf.f5.com GUI: > Deployment > F5 Insight 01 (Primary) > ACCESS > WEB SHELL
+
 ```sh
 curl -X GET "https://localhost/api/v1/fleet/upgrade/jobs/software-distribution" \
      -H "Authorization: Bearer $(curl -k -s -X POST "https://localhost/api/auth/login" \
@@ -40,11 +48,14 @@ curl -X GET "https://localhost/api/v1/fleet/upgrade/jobs/software-distribution" 
 ```
   
 ---
+
 #### **2. Install new version to HA Pair**
 
 **Navigate to:** Manage > Automation > Jobs  
 
+
 **Click on:** Add Job > "Software Installation"  
+
 
 **Fill Form:**  
 Job Name: 17.1.3.4 Installation  
