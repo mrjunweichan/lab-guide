@@ -132,7 +132,7 @@ Instances:
 
 Software to Distribute:  BIGIP-17.1.3.4-0.0.12.iso  
 
-Distribution Type:  Serial (Rolling Execution)  
+Distribution Type:  Parallel (Batch Execution)  
 
   
 **Click on:** "Check Instances"  
