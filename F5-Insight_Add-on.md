@@ -1,4 +1,119 @@
-## Upgrade BIG-IP Instance
+## Task 01 – Explore Top N
+
+### Description
+
+> The Top N dashboard provides a consolidated view of the most active and resource-intensive objects on a BIG-IP.
+> 
+> This ticket is designed to familiarize you with what information is available and how it can be used to quickly identify busy applications, high resource consumers, and potential availability concerns.
+> 
+> Your goal is to explore the Top N dashboard and understand the types of operational insights it provides.
+
+### Tasks
+
+> Navigate to:
+> 
+> > **Dashboards >> BIG-IP Device >> Top N**
+
+
+From the Device dropdown at the top of the page, select the BIG-IP specified below.
+
+> **CentralRegion-bigip-01**
+
+
+### Deliverables
+
+> Briefly answer the following:
+> 
+> > - Which VIP has the highest WAF CPU Utilization on CentralRegion-bigip-01?
+
+
+---
+
+# Task 02 – Identifying Orphaned Objects
+
+## Title: “What are these unused pools and nodes?”
+
+### Description
+
+> During a routine review of the _CentralRegion-bigip-01_ configuration, operations suspects there may be unused (orphaned) objects left over from previous testing or decommissioned applications.
+> 
+> You have been asked to identify any orphaned pools on _CentralRegion-bigip-01_ so they can be documented and, if appropriate, cleaned up later.
+
+### Context
+
+> **Device Name:** CentralRegion-bigip-01
+> 
+> These objects are believed not to be referenced by any active virtual servers.
+
+### Tasks
+
+> Use the AI Assistant located at the top of the home screen and enter the following prompt:
+> 
+> `Show all pools and nodes on CentralRegion-bigip-01, and indicate which ones are not referenced by any virtual server.`
+> 
+> From the returned information and the TMUI on CentralRegion-bigip-01:
+> 
+> > - Navigate to: **Local Traffic >> Pools >> Pool List**
+> >     
+> >     Confirm whether bruce_wayne and oliver_twist appear in the configuration.
+> >     
+> > - Verify whether either pool is assigned as a default pool (or referenced in a policy) on any virtual server.
+> >     
+> 
+> Summarize which of the above pools and nodes are truly orphaned (that is, not referenced by any virtual server or pool). Do not delete anything as part of this exercise. The goal is only to locate and document orphaned objects.
+
+### Deliverables
+
+> Briefly answer the following:
+> 
+> > - How many pools are on CentralRegion-bigip-01?
+> > - How many of those pools are not referenced by any Virtual Server?
+
+
+---
+# Task 03 – Verify Application Configuration Consistency Across BIG-IPs
+
+## Title: “Why Is My Application Not Performing the Same Across Regions?”
+
+### Description
+
+> An application owner for the app, _web-app-foo_, has observed inconsistent behavior across devices.
+> 
+> They would like the configuration reviewed for any anomalies.
+
+### Context
+
+> **Device Names:** EastRegion-bigip-01, WestRegion-bigip-01
+> 
+> **Virtual Server Name:** web-app-foo
+> 
+> App Servers and Ports:
+> 
+> - 10.1.20.100:80
+> - 10.1.20.101:80
+> - 10.1.20.102:80
+> - 10.1.20.201:80
+> - 10.1.20.202:80
+
+### Tasks
+
+> Use the AI Assistant and enter the following prompt:
+> 
+> > `Can you check the virtual servers named 'web-app-foo' and their associated objects across all BIG-IPs in all Data Centers to verify that the configuration is the same?`
+> 
+> (Tell the AI assistant yes to all datacenters if it asks you the scope of the question)
+> 
+> Review the information returned. Do you see any configuration differences between _EastRegion-bigip-01_ and _WestRegion-bigip-01_?
+> 
+> If differences are identified, validate them by navigating to: **Dashboard >> BIG-IP Device >> Device Virtual Server and Dashboard >> BIG-IP Device >> Device Pools**
+> 
+> Compare the configuration of _web-app-foo_ on each device:
+> 
+> > Identify and explain the configuration differences that could impact application behavior.
+
+---
+
+# Task 04 – Upgrade BIG-IP Instance
 
 #### **1. Distribute new version to HA Pair**
 
